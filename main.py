@@ -2,7 +2,7 @@ import logging
 from fastapi import FastAPI
 import inngest
 import inngest.fast_api
-# from inngest.experimental import ai
+from inngest.experimental import ai
 from dotenv import load_dotenv
 import uuid
 import os 
@@ -17,7 +17,8 @@ load_dotenv()
 inngest_client = inngest.Inngest(
     app_id="rag_app",
     logger= logging.getLogger("uvicorn"),
-    is_production=False
+    is_production=False,
+    serializer= inngest.PydanticSerializer()
     
 )
 
@@ -31,7 +32,7 @@ inngest_client = inngest.Inngest(
  
 async def rag_ingest_pdf(ctx: inngest.Context):
     # create steps through internal functions
-    def _load(ctx: inngest.Context) -> RAGChunksAndSrc:
+    def _load(ctx: inngest.Context) -> RAGChunksAndSrc: # removed (ctx: inngest.Context)
         pdf_path= ctx.event.data["pdf_path"]
         source_id= ctx.event.data.get("source_id", pdf_path)
         chunks= load_chunk_pdf(pdf_path)
@@ -54,7 +55,7 @@ async def rag_ingest_pdf(ctx: inngest.Context):
 
     chunks_and_src = await ctx.step.run(
         "load-and-chunk", 
-        lambda: _load(ctx), 
+        lambda: _load(ctx), # changed from lambda: _load(ctx)
         output_type=RAGChunksAndSrc
     )
     ingested= await ctx.step.run(
@@ -93,38 +94,24 @@ async def rag_query_pdf_ai(ctx: inngest.Context):
         "Answer concisely using the context above."
     )
 
-    # adapter = ai.openai.Adapter(
-    #     auth_key=os.getenv("OPENAI_API_KEY"),
-    #     model="gpt-40-mini"
-    # )
-
-    # res = await ctx.step.ai.infer(
-    #     "llm-answer",
-    #     adapter=adapter,
-    #     body={
-    #         "max_tokens": 1024,
-    #         "temperature": 0.2,
-    #         "messages":[
-    #             {"role": "system", "content": "You answer questions using only the provided context."},
-    #             {"role": "user", "content":user_content}
-    #         ]
-    #     }
-    # )
-    openai_client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-    res = await ctx.step.run(
-        "llm-answer",
-        lambda: openai_client.chat.completions.create(
-            model="gpt-4o-mini",
-            max_tokens=1024,
-            temperature=0.2,
-            messages=[
-                {"role": "system", "content": "You answer questions using only the provided context."},
-                {"role": "user", "content": user_content},
-            ],
-        ),
+    adapter = ai.openai.Adapter(
+        auth_key = os.getenv("OPENAI_API_KEY"),
+        model="gpt-4o-mini"
     )
+    
 
+    res = await ctx.step.ai.infer(
+        "llm-answer",
+        adapter=adapter,
+        body={
+            "max_tokens":1024,
+            "temperature": 0.2,
+            "messages":[
+                {"role": "system", "content": "You answer questions using only the provided context."},
+                {"role": "user", "content": user_content}
+            ]
+        }
+    )
 
     answer = res["choices"][0]["message"]["content"].strip()
     return {
@@ -136,3 +123,5 @@ async def rag_query_pdf_ai(ctx: inngest.Context):
 app=FastAPI()
 
 inngest.fast_api.serve(app, inngest_client, [rag_ingest_pdf, rag_query_pdf_ai])
+
+
