@@ -65,6 +65,9 @@ Dependencies include:
 </li> 
 
 </ul>
+<hr>
+<p2>License</p2>
+This project is licensed under the MIT License.See the LICENSE file for more details.
 
 
 
