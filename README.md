@@ -37,7 +37,7 @@ Build with streamlit for an interactive user interface, the app provides a seaml
 Dependencies include:
 <ul> 
 <li><strong>Python: </strong> the coding environment </li> 
-<li><strong>Streamlit:<strong> Frontend </li>
+<li><strong>Streamlit:</strong>strong> Frontend </li>
 <li><strong>qdrant:</strong> locally run vector database
 </li>
 <li><strong>inngest:</strong> for orchestration(manage and organize steps) and observability
@@ -50,13 +50,13 @@ Dependencies include:
 <hr>
 
 <h2>How to Use</h2>
-1. Prepare your environment
+1.<strong>Prepare your environment </strong> 
 <ul>   <li>Ensure the .env file with the OPENAI_API_KEY is set up correctly.</li>
  </ul>
-2. Run the application
+2. <strong>Run the application </strong>
 <ul> <li> Execute the Python script
 </li></ul>
-3. Interact with the App
+3. <strong>Interact with the App </strong>
 <ul> 
 <li> Drag and drop a pdf file in the provided section
 </li>   
@@ -65,6 +65,7 @@ Dependencies include:
 </li> 
 
 </ul>
+
 
 
 
