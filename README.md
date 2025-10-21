@@ -36,24 +36,34 @@ Build with streamlit for an interactive user interface, the app provides a seaml
 
 Dependencies include:
 <ul> 
-- **Python:** the coding environment
-- __Streamlit:__ Frontend
-- **qdrant:** locally run vector database
-- **inngest:** for orchestration(manage and organize steps) and observability
-- **LlamaIndex:** ingesting PDFs i.e., load and parse PDFs
-- **OpenAI:** AI components
+<li>**Python:** the coding environment </li> 
+<li>__Streamlit:__ Frontend </li>
+<li>**qdrant:** locally run vector database
+</li>
+<li>**inngest:** for orchestration(manage and organize steps) and observability
+</li>
+<li>**LlamaIndex:** ingesting PDFs i.e., load and parse PDFs
+</li>
+<li>**OpenAI:** AI components
+</li>
 </ul>
 <hr>
 
 <h2>How to Use</h2>
 1. Prepare your environment
-   * Ensure the .env file with the OPENAI_API_KEY is set up correctly.
+<ul>   <li>Ensure the .env file with the OPENAI_API_KEY is set up correctly.</li>
+ </ul>
 2. Run the application
-   * Execute the Python script
+<ul> <li> Execute the Python script
+</li></ul>
 3. Interact with the App
-   * Drag and drop a pdf file in the provided section
-   * Query the file and prompt for a response
-   * View the answer in the output section
+<ul> 
+<li> Drag and drop a pdf file in the provided section
+</li>   
+<li> Query the file and prompt for a response</li>
+<li> View the answer in the output section
+</li> 
 
+</ul>
 
 
