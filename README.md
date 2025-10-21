@@ -10,30 +10,39 @@ Build with streamlit for an interactive user interface, the app provides a seaml
 <h2> Features </h2>
 
 1. PDF ingest
-   Takes in a pdf with images, texts or tables.
-   From your queries it verifies the information and gives you output and associated sources
+   <ul> 
+   <li>Takes in a pdf with images, texts or tables. </li>
+   <li>From your queries it verifies the information and gives you output and associated sources</li>
+   </ul>
 2. User-Friendly Interface:
-   Built using streamlit with a visually appealing theme.
-   Simple input and output system for ease of use.
+   <ul>
+   <li>Built using streamlit with a visually appealing theme.</li>
+   <li>Simple input and output system for ease of use.</li>
+   </ul>
 3. Database
-   uses a vector databse to store information in the form the LLM can comprehend for quick search for simirality on queries 
+   <ul>
+   <li>uses a vector databse to store information in the form the LLM can comprehend for quick search for simirality on queries </li>
+   </ul>
 <hr>
 
 <h2>Installation </h2>
-<h3>Prerequisites</h3> 
-* Python 3.8 and above
-* Ensure you have a .env file containing the OPEN_AI_KEY for authenticating with OpenAi model.
+<h3>Prerequisites</h3>
+<ul>
+<li> Python 3.8 and above </li>
+<li> Ensure you have a .env file containing the OPEN_AI_KEY for authenticating with OpenAi model.</li>
+</ul>
 
 <h3>Install Dependencies</h3> 
 
 Dependencies include:
-**Python:** the coding environment
-__Streamlit:__ Frontend
-**qdrant:** locally run vector database
-**inngest:** for orchestration(manage and organize steps) and observability
-**LlamaIndex:** ingesting PDFs i.e., load and parse PDFs
-**OpenAI:** AI components
-
+<ul> 
+- **Python:** the coding environment
+- __Streamlit:__ Frontend
+- **qdrant:** locally run vector database
+- **inngest:** for orchestration(manage and organize steps) and observability
+- **LlamaIndex:** ingesting PDFs i.e., load and parse PDFs
+- **OpenAI:** AI components
+</ul>
 <hr>
 
 <h2>How to Use</h2>
@@ -45,5 +54,6 @@ __Streamlit:__ Frontend
    * Drag and drop a pdf file in the provided section
    * Query the file and prompt for a response
    * View the answer in the output section
+
 
 
