@@ -36,15 +36,15 @@ Build with streamlit for an interactive user interface, the app provides a seaml
 
 Dependencies include:
 <ul> 
-<li>**Python:** the coding environment </li> 
-<li>__Streamlit:__ Frontend </li>
-<li>**qdrant:** locally run vector database
+<li><strong>Python: </strong> the coding environment </li> 
+<li><strong>Streamlit:<strong> Frontend </li>
+<li><strong>qdrant:</strong> locally run vector database
 </li>
-<li>**inngest:** for orchestration(manage and organize steps) and observability
+<li><strong>inngest:</strong> for orchestration(manage and organize steps) and observability
 </li>
-<li>**LlamaIndex:** ingesting PDFs i.e., load and parse PDFs
+<li><strong>LlamaIndex:</strong> ingesting PDFs i.e., load and parse PDFs
 </li>
-<li>**OpenAI:** AI components
+<li><strong>OpenAI: </strong> AI components
 </li>
 </ul>
 <hr>
@@ -65,5 +65,6 @@ Dependencies include:
 </li> 
 
 </ul>
+
 
 
